@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  background-color: #f3f3f3;
+}
+
+.container .ql-editor {
+  width: 8.5in;
+  min-height: 11in;
+  padding: 1in;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  background-color: white;
+}
+
+.container .ql-container.ql-snow {
+  border: none;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.container .ql-toolbar.ql-snow {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #f3f3f3;
+  border: none;
+  width: 100%;
+  margin: auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+@page {
+  margin: 1in;
+}
+
+@media print {
+  body {
+    background: none;
+    margin: 0;
+  }
+
+  .container .ql-editor {
+    width: 6.5in;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    align-self: flex-start;
+    background-color: white;
+  }
+
+  .container .ql-toolbar.ql-snow {
+    display: none;
+  }
+
+  .container .ql-container.ql-snow {
+    border: none;
+    justify-content: flex-start;
+    margin: 0;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .container .ql-editor {
+    width: 90%;
+  }
+}
+
+@media (max-width: 992px) {
+  .container .ql-toolbar.ql-snow {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .container .ql-editor {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container .ql-toolbar.ql-snow {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container .ql-editor {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .container .ql-toolbar.ql-snow {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .container .ql-editor {
+    width: 100%;
+    padding: 0.5in;
+  }
+}
