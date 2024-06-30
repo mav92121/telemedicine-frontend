@@ -17,12 +17,17 @@ const TOOLBAR_OPTIONS = [
 ];
 
 const TextEditor: React.FC = () => {
-  const [socket, setSocket] = useState<SocketIOClient.Socket | null>(null);
+  const [socket, setSocket] = useState<any>(null);
   const [quill, setQuill] = useState<Quill | null>(null);
   const { id: documentId } = useParams();
+  const url = "https://telemedicine-backend.onrender.com";
+
+  // "http://localhost:3000";
+  // "https://telemedicine-backend-qov2q1bau-ms-projects-4359a3a9.vercel.app";
+  // "https://telemedicine-backend.onrender.com";
 
   useEffect(() => {
-    const s = io("http://localhost:3000");
+    const s = io(url);
     setSocket(s);
     s.on("connect", () => {
       console.log("Connected to server");
@@ -35,7 +40,7 @@ const TextEditor: React.FC = () => {
   useEffect(() => {
     if (!socket || !quill) return;
 
-    const handler = (delta: any, oldDelta: any, source: string) => {
+    const handler = (delta: any, source: string) => {
       if (source !== "user") return;
       socket.emit("send-changes", delta);
     };
